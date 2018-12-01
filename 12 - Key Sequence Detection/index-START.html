@@ -7,6 +7,22 @@
 </head>
 <body>
 <script>
+const keys = [];
+const secret = 'dabear'
+
+function handleSequence(e) {
+  if (keys.length < secret.length) {
+    keys.push(e.key);
+  } else {
+    keys.shift();
+    keys.push(e.key);
+  }
+
+  if (keys.join('') === secret) {
+    cornify_add();
+  }
+}
+window.addEventListener('keydown', handleSequence);
 </script>
 </body>
 </html>
